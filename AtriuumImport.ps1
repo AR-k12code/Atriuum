@@ -55,7 +55,9 @@ $settings.libraries | ForEach-Object {
         $filePath = "$currentWorkingDirectory\files\$($library.filePath)"
 
         #We need to download the file and save it to the $filePath.
+        $global:progressPreference = 'silentlyContinue'
         & ..\CognosDownload.ps1 -report "Atriuum" -cognosfolder "_Shared Data File Reports/Library Systems/Atriuum" -TeamContent -savepath "$currentWorkingDirectory\files" -reportparams "$($library.cognosParameters)" -FileName "$($library.filePath)"
+        $global:progressPreference = 'Continue'
 
         #If we get an error code we need to stop processing this library.
         if ($LASTEXITCODE -ne 0) {
