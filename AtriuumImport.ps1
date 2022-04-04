@@ -79,7 +79,7 @@ $settings.libraries | ForEach-Object {
         'doInlineLogin'         = "true"
         'username'              = "$($settings.username)"
         'password'              = "$($settings.password)"
-        'location'              = "$($settings.location)"
+        'location'              = "$($library.location)"
         'ImportID'              = ''
         'ImportName'            = "$($settings.importName)"
         'email'                 = ''
@@ -89,12 +89,31 @@ $settings.libraries | ForEach-Object {
     }
 
     try {
-        $response = Invoke-WebRequest `
+
+        $response = Invoke-RestMethod `
             -UserAgent 'AutoPatronImporter' `
             -Headers @{ "Accept-Encoding"="identity"; "Content-Type"="multipart/form-data" } `
             -Uri "https://$($settings.atriuumURL)/libs/$($library.libraryPrefix)/Import" `
             -Method 'POST' `
             -Form $uploadForm
+
+        if ($response.inputresult) {
+            
+            if ($response.inputresult.failure) {
+                Write-Host "Info: Errors were detected on the server side... 
+                $($response.importresult.failure.message)
+                $($response.inputresult.failure.error.message)"
+            } 
+            
+            if ($response.importresult.success) {
+                $response.importresult.success.message
+            }
+
+        } else {
+            Write-Host "Error: Did not get an expected response from the server." -ForegroundColor Red
+        }
+        
+
     } catch {
         $PSitem
         Write-Host "Error: Failed to submit the updated student file to ""https://$($settings.atriuumURL)/libs/$($library.libraryPrefix)/Import"""
