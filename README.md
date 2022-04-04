@@ -4,6 +4,9 @@ These scripts come without warranty of any kind. Use them at your own risk. I as
 
 This script was written because as of April 2022 Atriuum Booksystems said about their Python AutoPatronImport tool working with Python 3: "We are currently only running our scripts off of Python 2.7 when we install ... unable to guarantee no issues running version 3."  Their tool does not in fact work with Python 3. I would like to point out that Atriuum is asking people to install a deprecated version of Python 2, on production machines, while not supporting Python 3 which was released in 2008.  It is now April 2022. What. The. Heck!?
 
+# Warning!!!
+Do not use this unless you already have the Patron Link Identifier as the Student ID. If you have the barcode as the Student ID you can put in a ticket to have it copied to the Patron Link Identifier.
+
 # Suggested install process
 ````
 mkdir \Scripts
