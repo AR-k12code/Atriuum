@@ -1,0 +1,60 @@
+<ImportDefinitionsFile version="1">
+	<ImportDefinition name="Atriuum Auto Import" field_delimeter="," record_delimeter="carriage return" view="Patron">
+        <Rule field="Patron.PatronClass" type="1">
+			<Operation text="Student" pattern=""/>
+		</Rule>
+		<Rule field="Patron.PatronBarcode" type="1">
+			<Operation column="1" from="" to=""/>
+		</Rule>
+		<Rule field="Patron.PatronLinkIdentifier" type="1">
+			<Operation column="1" from="" to=""/>
+		</Rule>
+		<Rule field="Patron.LastName" type="1">
+			<Operation column="2" from="" to=""/>
+		</Rule>
+		<Rule field="Patron.FirstName" type="1">
+			<Operation column="3" from="" to=""/>
+		</Rule>
+		<Rule field="Patron.MaritalStatus" type="1">
+			<Operation column="4" from="" to=""/>
+		</Rule>
+		<Rule field="Patron.Birthdate" type="1">
+			<Operation column="5" from="1" to="10"/>
+		</Rule>
+		<Rule field="Patron.EmailAddress" type="1">
+			<Operation column="6" from="" to=""/>
+		</Rule>
+		<Rule field="Patron.Username" type="1">
+			<Operation column="6" from="" to=""/>
+		</Rule>
+        <Rule field="Patron.PatronReportClass" type="2">
+			<Operation column="7" from="" to=""/>
+			<Operation text="PK Grade" pattern="PK"/>
+			<Operation text="K Grade" pattern="K"/>
+            <Operation text="K Grade" pattern="KF"/>
+			<Operation text="1st Grade" pattern="01"/>
+            <Operation text="1st Grade" pattern="1"/>
+			<Operation text="2nd Grade" pattern="02"/>
+            <Operation text="2nd Grade" pattern="2"/>
+			<Operation text="3rd Grade" pattern="03"/>
+            <Operation text="3rd Grade" pattern="3"/>
+			<Operation text="4th Grade" pattern="04"/>
+            <Operation text="4th Grade" pattern="4"/>
+			<Operation text="5th Grade" pattern="05"/>
+            <Operation text="5th Grade" pattern="5"/>
+			<Operation text="6th Grade" pattern="06"/>
+            <Operation text="6th Grade" pattern="6"/>
+			<Operation text="7th Grade" pattern="07"/>
+            <Operation text="7th Grade" pattern="7"/>
+			<Operation text="8th Grade" pattern="08"/>
+            <Operation text="8th Grade" pattern="8"/>
+			<Operation text="9th Grade" pattern="09"/>
+            <Operation text="9th Grade" pattern="9"/>
+			<Operation text="10th Grade" pattern="10"/>
+			<Operation text="11th Grade" pattern="11"/>
+			<Operation text="12th Grade" pattern="12"/>
+			<Operation text="SS" pattern="SS"/>
+		</Rule>
+	</ImportDefinition>
+</ImportDefinitionsFile>
+

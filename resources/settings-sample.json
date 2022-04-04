@@ -1,0 +1,38 @@
+{
+
+    "atriuumURL": "yourschoolurl.booksys.net",
+    "username": "patronimport",
+    "password": "vap9ipa3RovljlhlSIDo", //the year is 2022. Use a good randomly generated password.
+    "importName": "Atriuum Auto Import",
+
+    "libraries": [
+
+        {
+            "libraryPrefix": "ghs", //this should be a part of the url in your adddress bar. xyz.booksys.net/libs/[right here]/LogOn.html
+            "location": "Main Library",
+            "filePath": "ghs.csv", //if only file specified it is expected to be in the files folder. Otherwise full path with double slashes may be specified.
+            "enabled": true,
+            "pullfromCognos": true,
+            "cognosParameters": "p_building=14&p_grades=12&p_grades=11&p_grades=10&p_grades=09&p_grades=SS&p_useHomeroom=NO"
+        },
+        {
+            "libraryPrefix": "gms", //this should be a part of the url in your adddress bar. xyz.booksys.net/libs/[right here]/LogOn.html
+            "location": "Main Library",
+            "filePath": "c:\\scripts\\atriuum\\exports\\gms.csv", //if only file specified it is expected to be in the files folder. Otherwise full path may be specified. Escape your slashes!
+            "enabled": true,
+            "pullfromCognos": false,
+            "cognosParameters": ""
+        },
+        {
+            "libraryPrefix": "ges", //this should be a part of the url in your adddress bar. xyz.booksys.net/libs/[right here]/LogOn.html
+            "location": "Main Library",
+            "filePath": "ges.csv", //if only file specified it is expected to be in the files folder. Otherwise full path may be specified. Escape your slashes!
+            "enabled": false,
+            "pullfromCognos": true,
+            "cognosParameters": "p_building=16&p_grades=KF&p_grades=01&p_grades=02&p_useHomeroom=YES"
+        }
+
+    ]
+
+
+}
