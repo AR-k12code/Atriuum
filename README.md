@@ -2,7 +2,7 @@
 
 These scripts come without warranty of any kind. Use them at your own risk. I assume no liability for the accuracy, correctness, completeness, or usefulness of any information provided by this site nor for any sort of damages using these scripts may cause.
 
-This script was written because as of April 2022 Atriuum Booksystems said about their Python AutoPatronImport tool working with Python 3: "We are currently only running our scripts off of Python 2.7 when we install ... unable to guarantee no issues running version 3."  Their tool does not infact work with Python 3. I would like to point out that Atriuum is asking people to install a deprecated version of Python 2, on production machines, while not supporting Python 3 which was released in 2008.  It is now April 2022. What. The. Heck!?
+This script was written because as of April 2022 Atriuum Booksystems said about their Python AutoPatronImport tool working with Python 3: "We are currently only running our scripts off of Python 2.7 when we install ... unable to guarantee no issues running version 3."  Their tool does not in fact work with Python 3. I would like to point out that Atriuum is asking people to install a deprecated version of Python 2, on production machines, while not supporting Python 3 which was released in 2008.  It is now April 2022. What. The. Heck!?
 
 # Suggested install process
 ````
