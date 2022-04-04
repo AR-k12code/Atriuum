@@ -52,6 +52,8 @@ $settings.libraries | ForEach-Object {
     }
 
     if ($library.pullfromCognos -eq $True) {
+        $filePath = "$currentWorkingDirectory\files\$($library.filePath)"
+
         #We need to download the file and save it to the $filePath.
         & ..\CognosDownload.ps1 -report "Atriuum" -cognosfolder "_Shared Data File Reports/Library Systems/Atriuum" -TeamContent -savepath "$currentWorkingDirectory\files" -reportparams "$($library.cognosParameters)" -FileName "$($library.filePath)"
 
