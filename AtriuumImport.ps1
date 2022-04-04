@@ -9,13 +9,17 @@
 
 $currentWorkingDirectory = $PSScriptRoot
 
-if (-Not(Test-Path .\settings.json)) {
+if (-Not(Test-Path "$currentWorkingDirectory\settings.json")) {
     Write-Host "Error: No settings file found. Please copy the sample settings file to the project root." -ForegroundColor Red
     exit 1
 }
 
+if (-Not(Test-Path "$currentWorkingDirectory\files")) {
+    New-Item -Name "files" -Path "$currentWorkingDirectory" -ItemType Directory -Force
+}
+
 try {
-    $settings = (Get-Content .\settings.json) | ConvertFrom-Json
+    $settings = (Get-Content "$currentWorkingDirectory\settings.json") | ConvertFrom-Json
 } catch {
     Write-Host "Error: Failed to import settings.json. Please be sure the file is properly json formatted." -ForegroundColor Red
     exit 1
