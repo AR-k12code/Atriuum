@@ -97,8 +97,8 @@ $settings.libraries | ForEach-Object {
             -Method 'POST' `
             -Form $uploadForm
 
-        if ($response.inputresult) {
-            
+        if ($response.importresult) {
+
             if ($response.inputresult.failure) {
                 Write-Host "Info: Errors were detected on the server side... 
                 $($response.importresult.failure.message)
