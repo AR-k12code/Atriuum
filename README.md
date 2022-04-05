@@ -16,12 +16,48 @@ Copy-Item .\atriuum\resources\settings-sample.json .\atriuum\settings.json -Conf
 ````
 
 # Dependencies
-This project can use the CognosDownloader from https://github.com/AR-k12code/CognosDownloader.  It must be installed using the suggested install process and configured using the CognosDefaults file.
+This project *CAN* use the CognosDownloader from https://github.com/AR-k12code/CognosDownloader.  It must be installed using the suggested install process and configured using the CognosDefaults file.
+
+# Data Format
+Data must be a CSV. The headers do not matter but the column order does.
+````
+Building,Student_id,Last_name,First_name,Grade,Birthdate,Email,Reporting_class
+703,5014045644,Millsap,Craig,12,10-4-2002,craig.millsap@myschool.net,10
+````
+
+````
+Building,Student_id,Last_name,First_name,Grade,Birthdate,Email,Reporting_class
+13,123456789,Doe,John,PK,7-18-2017,john.doe@myschool.net,PK
+13,123456789,Doe,Jane,KF,7-18-2018,john.doe@myschool.net,KF
+13,123456789,Doe,Jane,K,7-18-2018,john.doe@myschool.net,K
+````
 
 # Settings
-The resources\settings-sample.json file is provided as an example for how to configure the script. Copy this file to c:\scripts\Atriuum, rename to settings.json, then edit the file.
+The resources\settings-sample.json file is provided as an example for how to configure the script. This is a json formatted file.
 
-# Create an import user
+Copy this file to c:\scripts\Atriuum, rename to settings.json, then edit the file.
+
+## Location must match a Physical Location
+I believe the default is "Main Library" but you will want to make sure by checking here:
+````
+Administration > Catalog > Physical Location
+````
+
+## Patron Reporting Class
+The default Patron Reporting Class is the grade level. For example a student in grade 10 will get a "10th Grade" Report Class. You need to make sure there is a Patron Report Class for each grade in that building. 
+```
+Administration > Patrons > Patron Report Class
+- "PK Grade"
+- "K Grade"
+- "1st Grade"
+- "2nd Grade"
+- "3rd Grade"
+- "4th Grade" .. "12th Grade"
+- "SS"
+```
+
+
+# Create an Import user
 Create the same user with the same password for all your libraries. Please use a good randomly generated 20+ character password. Note that punctuations may cause an issue in the json settings file.
 ````
 Administration > Library > Worker Records > Add New Worker
