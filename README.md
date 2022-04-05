@@ -2,7 +2,11 @@
 
 These scripts come without warranty of any kind. Use them at your own risk. I assume no liability for the accuracy, correctness, completeness, or usefulness of any information provided by this site nor for any sort of damages using these scripts may cause.
 
-This script was written because as of April 2022 Atriuum Booksystems said about their Python AutoPatronImport tool working with Python 3: "We are currently only running our scripts off of Python 2.7 when we install ... unable to guarantee no issues running version 3."  Their tool does not in fact work with Python 3. I would like to point out that Atriuum is asking people to install a deprecated version of Python 2, on production machines, while not supporting Python 3 which was released in 2008.  It is now April 2022. What. The. Heck!?
+This script was written because as of April 2022 Atriuum Booksystems said about their Python AutoPatronImport tool working with Python 3: "We are currently only running our scripts off of Python 2.7 when we install ... unable to guarantee no issues running version 3."  Their tool does not in fact work with Python 3. I would like to point out that Atriuum is asking people to install a deprecated version of Python 2, on production machines, while not supporting Python 3 which was released in 2008.  It is now April of 2022. What. The. Heck!?
+
+This automation process was written for districts managed by CAMTech Computer Services, LLC and was originally designed to work with Automated Students services from https://www.camtechcs.com/automated-students/.
+
+It has now been given back to the Arkansas K12 community.
 
 # Warning!!!
 Do not use this unless you already have the Patron Link Identifier as the Student ID. If you have the barcode as the Student ID you can put in a ticket to have it copied to the Patron Link Identifier.
@@ -57,7 +61,7 @@ Administration > Patrons > Patron Report Class
 ```
 
 
-# Create an Import user
+# Create an Import User
 Create the same user with the same password for all your libraries. Please use a good randomly generated 20+ character password. Note that punctuations may cause an issue in the json settings file.
 ````
 Administration > Library > Worker Records > Add New Worker
