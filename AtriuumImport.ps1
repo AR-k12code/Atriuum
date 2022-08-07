@@ -55,12 +55,9 @@ $settings.libraries | ForEach-Object {
         $filePath = "$currentWorkingDirectory\files\$($library.filePath)"
 
         #We need to download the file and save it to the $filePath.
-        $global:progressPreference = 'silentlyContinue'
-        & ..\CognosDownload.ps1 -report "Atriuum" -cognosfolder "_Shared Data File Reports/Library Systems/Atriuum" -TeamContent -savepath "$currentWorkingDirectory\files" -reportparams "$($library.cognosParameters)" -FileName "$($library.filePath)"
-        $global:progressPreference = 'Continue'
-
-        #If we get an error code we need to stop processing this library.
-        if ($LASTEXITCODE -ne 0) {
+        try {
+            Save-CognosReport -report "Atriuum" -cognosfolder "_Shared Data File Reports/Library Systems/Atriuum" -TeamContent -savepath "$currentWorkingDirectory\files" -reportparams "$($library.cognosParameters)" -FileName "$($library.filePath)"
+        } catch {
             Write-Host "Error: Failed to download latest student data from Cognos. Please check your prompts. We will continue with other libraries." -ForegroundColor Red
             return
         }
@@ -72,6 +69,19 @@ $settings.libraries | ForEach-Object {
         }
     }
 
+    #if the username and/or passowrd are provided for the specific library then we should use those as an override.
+    if ($library.username) {
+        $username = $library.username
+    } else {
+        $username = $settings.username
+    }
+
+    if ($library.password) {
+        $password = $library.password
+    } else {
+        $password = $settings.password
+    }
+
     $uploadForm = @{
         'ContinueImport'        = ""
         'StartImport'           = ""
@@ -79,8 +89,8 @@ $settings.libraries | ForEach-Object {
         'pagename'              = "ImportResult.xml"
         'what'                  = "Patron"
         'doInlineLogin'         = "true"
-        'username'              = "$($settings.username)"
-        'password'              = "$($settings.password)"
+        'username'              = "$($username)"
+        'password'              = "$($password)"
         'location'              = "$($library.location)"
         'ImportID'              = ''
         'ImportName'            = "$($settings.importName)"
